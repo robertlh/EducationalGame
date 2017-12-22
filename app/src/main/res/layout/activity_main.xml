@@ -43,6 +43,7 @@
         android:layout_width="@dimen/ButtonWidth"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:onClick="Settings"
         android:text="Settings"
         app:layout_constraintStart_toStartOf="@+id/startButton"
         app:layout_constraintTop_toBottomOf="@+id/startButton" />

@@ -1,9 +1,9 @@
 package sg.jcu.robertpeters.educationalgame;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
-public class HighScoreActivity extends AppCompatActivity {
+public class HighScoreActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

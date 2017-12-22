@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="sg.jcu.robertpeters.educationalgame.HighScoreActivity">
 
-    <TextView
-        android:id="@+id/caption"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="HighScore" />
-
-    <ListView
+    <fragment android:name="sg.jcu.robertpeters.educationalgame.HighScoreFragment"
+        android:id="@+id/article_fragment"
+        android:layout_weight="2"
         android:layout_width="0dp"
-        android:layout_height="500dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/caption" />
-</android.support.constraint.ConstraintLayout>
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>
