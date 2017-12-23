@@ -25,9 +25,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Score Table Columns names
     private static final String KEY_ID_SCORE = "_id";
     private static final String KEY_SCORE = "score_value";
+    private static final String KEY_NAME = "name";
 
     DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        SQLiteDatabase db = this.getWritableDatabase();
     }
 
     // Creating Tables
@@ -35,6 +37,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_SCORE_TABLE = "CREATE TABLE " + TABLE_SCORE + "("
                 + KEY_ID_SCORE + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + KEY_NAME + " TEXT,"
                 + KEY_SCORE + " TEXT" + ")";
 
         db.execSQL(CREATE_SCORE_TABLE);
@@ -52,13 +55,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     // Adding new score
-    void addScore(int score) {
+    void addScore(int score, String name) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
 
         values.put(KEY_SCORE, score); // score value
+        values.put(KEY_NAME, name);
 
         // Inserting Values
         db.insert(TABLE_SCORE, null, values);
@@ -71,7 +75,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     String[] getAllScores() {
 
         // Select All Query
-        String selectQuery = "SELECT  * FROM " + TABLE_SCORE;
+        String selectQuery = "SELECT  * FROM " + TABLE_SCORE + " ORDER BY " + KEY_SCORE + " DESC";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -84,7 +88,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         while (cursor.moveToNext()) {
 
-            data[i] = cursor.getString(1);
+            data[i] = cursor.getString(1) + " " + cursor.getString(2);
 
             i++;
 

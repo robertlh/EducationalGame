@@ -25,8 +25,8 @@ public class HighScoreFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         db = new DatabaseHandler(getContext());
-        db.addScore(34);
-        db.addScore(70);
+        //db.addScore(34, "Robert");
+        //db.addScore(70, "Felix");
         View view = inflater.inflate(R.layout.fragment_hight_score, container, false);
         String[] scores = db.getAllScores();
         /*ArrayAdapter<String> scoresAdapter =
@@ -37,10 +37,12 @@ public class HighScoreFragment extends Fragment {
         ListView scoreView = view.findViewById(R.id.scoreList);
         scoreView.setAdapter(scoresAdapter);*/
         LinearLayout scoresLayout = view.findViewById(R.id.linearLayout);
-        for(String sc:scores){
+        int i = 1;
+        for (String sc : scores) {
             TextView textView = new TextView(getContext());
-            textView.setText(sc);
+            textView.setText(String.valueOf(i) + ". " + sc);
             scoresLayout.addView(textView);
+            i++;
         }
         return view;
     }
