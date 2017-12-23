@@ -6,14 +6,43 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
 public class HighScoreFragment extends Fragment {
 
+    private DatabaseHandler db;
+
+    public HighScoreFragment() {
+    }
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        db = new DatabaseHandler(getContext());
+        db.addScore(34);
+        db.addScore(70);
         View view = inflater.inflate(R.layout.fragment_hight_score, container, false);
-        return view
+        String[] scores = db.getAllScores();
+        /*ArrayAdapter<String> scoresAdapter =
+                new ArrayAdapter<>(getActivity(),
+                        R.layout.score_item_layout,
+                        R.id.list_item_score,
+                        scores);
+        ListView scoreView = view.findViewById(R.id.scoreList);
+        scoreView.setAdapter(scoresAdapter);*/
+        LinearLayout scoresLayout = view.findViewById(R.id.linearLayout);
+        for(String sc:scores){
+            TextView textView = new TextView(getContext());
+            textView.setText(sc);
+            scoresLayout.addView(textView);
+        }
+        return view;
     }
 
 
