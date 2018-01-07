@@ -14,16 +14,16 @@ public class taskObject {
     private int result;
 
     public taskObject() {
-        int[] temp = (Array) R.array.results
+        int[] temp = (Array) R.array.results;
         result = randomNumber();
         Image = new Image();
     }
 
     public boolean result(int input) {
-
+        return false
     }
 
     private int randomNumber() {
-        return (int) ((Math.random() *);
+        return (int) ((Math.random() *5));
     }
 }
