@@ -9,6 +9,7 @@
 
     <EditText
         android:id="@+id/nameInput"
+        android:inputType="number"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -21,10 +22,10 @@
         app:layout_constraintVertical_bias="0.542" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/viewHighScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Alpha 100 points"
+        android:text="@string/AllTimeHighScoreDefault"
         app:layout_constraintStart_toStartOf="@id/nameInput"
         app:layout_constraintTop_toTopOf="@id/HighscoreText" />
 
@@ -33,10 +34,11 @@
         android:layout_width="@dimen/ButtonWidth"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Start"
+        android:text="@string/start"
+        android:onClick="Start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/viewHighScore" />
 
     <Button
         android:id="@+id/buttonSettings"
@@ -44,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:onClick="Settings"
-        android:text="Settings"
+        android:text="@string/settings"
         app:layout_constraintStart_toStartOf="@+id/startButton"
         app:layout_constraintTop_toBottomOf="@+id/startButton" />
 
@@ -53,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Highscore:"
+        android:text="@string/highscore"
         app:layout_constraintStart_toStartOf="@id/nameText"
         app:layout_constraintTop_toBottomOf="@id/nameText" />
 
@@ -63,6 +65,7 @@
         android:layout_height="wrap_content"
         android:text="@string/name"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:labelFor="@id/nameInput"
         app:layout_constraintEnd_toStartOf="@+id/nameInput"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"

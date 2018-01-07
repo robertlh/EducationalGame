@@ -1,8 +1,9 @@
 package sg.jcu.robertpeters.educationalgame;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,4 +15,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void Settings(View view) {
+        startActivity(new Intent(this, HighScoreActivity.class));
+    }
+
+    public void Start(View view){
+        startActivity(new Intent(this, GameActivity.class));
+    }
 }

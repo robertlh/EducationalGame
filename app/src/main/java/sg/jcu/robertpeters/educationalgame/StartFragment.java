@@ -1,7 +1,6 @@
 package sg.jcu.robertpeters.educationalgame;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -27,7 +26,4 @@ public class StartFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_start, container, false);
     }
 
-    public void Settings(View view) {
-        startActivity(new Intent(getContext(), HighScoreActivity.class));
-    }
 }
