@@ -2,8 +2,6 @@ package sg.jcu.robertpeters.educationalgame;
 
 import android.media.Image;
 
-import java.lang.reflect.Array;
-
 /**
  * Created by U556094 on 07.01.2018.
  */
@@ -14,16 +12,17 @@ public class taskObject {
     private int result;
 
     public taskObject() {
-        int[] temp = (Array) R.array.results;
-        result = randomNumber();
-        Image = new Image();
+        /*int[] temp = Context.getResources().getIntArray(R.array.results);
+        int temp2 = randomNumber(temp.length);
+        result = temp[temp2];
+        Image = Context.getResources().getDrawable(R.drawable.img1);*/
     }
 
     public boolean result(int input) {
-        return false
+        return false;
     }
 
-    private int randomNumber() {
-        return (int) ((Math.random() *5));
+    private int randomNumber(int length) {
+        return (int) ((Math.random() * length));
     }
 }
