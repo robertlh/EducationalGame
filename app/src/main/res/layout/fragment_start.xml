@@ -9,11 +9,11 @@
 
     <EditText
         android:id="@+id/nameInput"
-        android:inputType="number"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="36dp"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="@+id/nameText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -34,8 +34,8 @@
         android:layout_width="@dimen/ButtonWidth"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/start"
         android:onClick="Start"
+        android:text="@string/start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewHighScore" />
@@ -63,9 +63,9 @@
         android:id="@+id/nameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:labelFor="@id/nameInput"
         android:text="@string/name"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:labelFor="@id/nameInput"
         app:layout_constraintEnd_toStartOf="@+id/nameInput"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"

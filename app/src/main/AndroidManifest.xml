@@ -23,7 +23,9 @@
         <activity
             android:name=".GameActivity"
             android:label="@string/title_activity_game"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Authenticate" />
+        <activity android:name=".TweetActivity"></activity>
     </application>
 
 </manifest>
