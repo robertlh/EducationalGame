@@ -25,8 +25,6 @@ public class HighScoreFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         db = new DatabaseHandler(getContext());
-        //db.addScore(34, "Robert");
-        //db.addScore(70, "Felix");
         View view = inflater.inflate(R.layout.fragment_hight_score, container, false);
         String[] scores = db.getAllScores();
         /*ArrayAdapter<String> scoresAdapter =
@@ -46,6 +44,4 @@ public class HighScoreFragment extends Fragment {
         }
         return view;
     }
-
-
 }

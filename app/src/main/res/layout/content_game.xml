@@ -11,8 +11,8 @@
     <fragment
         android:id="@+id/taskFragment"
         android:name="sg.jcu.robertpeters.educationalgame.taskFragment"
-        android:layout_width="216dp"
-        android:layout_height="127dp"
+        android:layout_width="@dimen/task_width"
+        android:layout_height="@dimen/task_height"
         app:layout_constraintBottom_toTopOf="@+id/resultInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

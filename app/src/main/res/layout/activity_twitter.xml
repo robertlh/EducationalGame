@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="sg.jcu.robertpeters.educationalgame.TweetActivity">
+    tools:context="sg.jcu.robertpeters.educationalgame.TwitterActivity">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/resultLayout"
@@ -15,9 +15,10 @@
         android:visibility="visible">
 
         <TextView
-            android:id="@+id/resultText"
+            android:id="@+id/resultOutputText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAlignment="center"
             app:layout_constraintBottom_toTopOf="@+id/textView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -29,11 +30,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/saveExplanation"
+            android:textAlignment="center"
             app:layout_constraintBottom_toTopOf="@id/button2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/resultText" />
+            app:layout_constraintTop_toBottomOf="@id/resultOutputText" />
 
         <Button
             android:id="@+id/button2"
@@ -80,7 +82,8 @@
     <LinearLayout
         android:id="@+id/share_layout"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical"
         android:visibility="gone" >
 
@@ -93,12 +96,6 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#0080B4" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="fill_parent"
-            android:layout_height="150dp"
-            android:contentDescription=""
-            android:scaleType="centerCrop" />
 
         <EditText
             android:id="@+id/share_text"
@@ -106,10 +103,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:background="#cceaf3"
-            android:hint="@string/share_instructions"
             android:inputType="textMultiLine"
             android:minLines="5"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:text="@string/share_instructions" />
 
         <Button
             android:id="@+id/btn_share"

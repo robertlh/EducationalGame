@@ -5,18 +5,15 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +29,7 @@ import twitter4j.auth.RequestToken;
 import twitter4j.conf.Configuration;
 import twitter4j.conf.ConfigurationBuilder;
 
-public class TweetActivity extends Activity implements OnClickListener {
+public class TwitterActivity extends AppCompatActivity implements View.OnClickListener {
 
     /* Any number for uniquely distinguish your request */
     public static final int WEBVIEW_REQUEST_CODE = 10;
@@ -47,7 +44,7 @@ public class TweetActivity extends Activity implements OnClickListener {
     private static SharedPreferences mSharedPreferences;
     private ProgressDialog pDialog;
     private EditText mShareEditText;
-    private TextView userName;
+    private TextView userName, result1;
     private View loginLayout;
     private View shareLayout;
 
@@ -61,12 +58,6 @@ public class TweetActivity extends Activity implements OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set Text
-        SharedPreferences preferences = getSharedPreferences("EduGame", MODE_PRIVATE);
-        TextView result = findViewById(R.id.resultText);
-        //String tmp = String.format(getResources().getString(R.string.congratsText), preferences.getString("name", "Unknown"), preferences.getInt("score", 0), 10 );
-        //result.setText("Static Text!");
-
 		/* initializing twitter parameters from string.xml */
         initTwitterConfigs();
 
@@ -75,12 +66,21 @@ public class TweetActivity extends Activity implements OnClickListener {
         StrictMode.setThreadPolicy(policy);
 
 		/* Setting activity layout file */
-        setContentView(R.layout.activity_tweet);
+        setContentView(R.layout.activity_twitter);
 
-        loginLayout = (RelativeLayout) findViewById(R.id.login_layout);
-        shareLayout = (LinearLayout) findViewById(R.id.share_layout);
-        mShareEditText = (EditText) findViewById(R.id.share_text);
-        userName = (TextView) findViewById(R.id.user_name);
+        //Set Text
+        SharedPreferences preferences = getSharedPreferences("EduGame", MODE_PRIVATE);
+        result1 = findViewById(R.id.resultOutputText);
+        String tmp = String.format(getResources().getString(R.string.share_instructions), preferences.getInt("score", 0), 10 );
+        String tmp2 = String.format(getResources().getString(R.string.congratsText), preferences.getString("name", "Unknown"), preferences.getInt("score", 0), 10);
+        result1.setText(tmp2);
+
+        loginLayout = findViewById(R.id.login_layout);
+        shareLayout = findViewById(R.id.share_layout);
+        mShareEditText = findViewById(R.id.share_text);
+        userName = findViewById(R.id.user_name);
+
+        mShareEditText.setText(String.format(tmp));
 
 		/* register button click listeners */
         findViewById(R.id.btn_login).setOnClickListener(this);
@@ -104,8 +104,7 @@ public class TweetActivity extends Activity implements OnClickListener {
             shareLayout.setVisibility(View.VISIBLE);
 
             String username = mSharedPreferences.getString(PREF_USER_NAME, "");
-            userName.setText(getResources().getString(R.string.hello)
-                    + username);
+            userName.setText(String.format(getString(R.string.hello), username));
 
         } else {
             loginLayout.setVisibility(View.VISIBLE);
@@ -132,7 +131,7 @@ public class TweetActivity extends Activity implements OnClickListener {
 
                     loginLayout.setVisibility(View.GONE);
                     shareLayout.setVisibility(View.VISIBLE);
-                    userName.setText(getString(R.string.hello) + username);
+                    userName.setText(String.format(getString(R.string.hello), username));
 
                 } catch (Exception e) {
                     Log.e("Fail login Twitter!!", e.getMessage());
@@ -145,7 +144,7 @@ public class TweetActivity extends Activity implements OnClickListener {
 
     /**
      * Saving user information, after user is authenticated for the first time.
-     * You don't need to show user to login, until user has a valid access toen
+     * You don't need to show user to login, until user has a valid access token
      */
     private void saveTwitterInfo(AccessToken accessToken) {
 
@@ -158,12 +157,12 @@ public class TweetActivity extends Activity implements OnClickListener {
             String username = user.getName();
 
 			/* Storing oAuth tokens to shared preferences */
-            Editor e = mSharedPreferences.edit();
-            e.putString(PREF_KEY_OAUTH_TOKEN, accessToken.getToken());
-            e.putString(PREF_KEY_OAUTH_SECRET, accessToken.getTokenSecret());
-            e.putBoolean(PREF_KEY_TWITTER_LOGIN, true);
-            e.putString(PREF_USER_NAME, username);
-            e.commit();
+            mSharedPreferences.edit()
+                    .putString(PREF_KEY_OAUTH_TOKEN, accessToken.getToken())
+                    .putString(PREF_KEY_OAUTH_SECRET, accessToken.getTokenSecret())
+                    .putBoolean(PREF_KEY_TWITTER_LOGIN, true)
+                    .putString(PREF_USER_NAME, username)
+                    .apply();
 
         } catch (TwitterException e1) {
             e1.printStackTrace();
@@ -217,8 +216,8 @@ public class TweetActivity extends Activity implements OnClickListener {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (resultCode == Activity.RESULT_OK) {
-            String verifier = data.getExtras().getString(oAuthVerifier);
             try {
+                String verifier = data.getExtras().getString(oAuthVerifier);
                 AccessToken accessToken = twitter.getOAuthAccessToken(requestToken, verifier);
 
                 long userID = accessToken.getUserId();
@@ -229,8 +228,8 @@ public class TweetActivity extends Activity implements OnClickListener {
 
                 loginLayout.setVisibility(View.GONE);
                 shareLayout.setVisibility(View.VISIBLE);
-                userName.setText(TweetActivity.this.getResources().getString(
-                        R.string.hello) + username);
+                userName.setText(TwitterActivity.this.getResources().getString(
+                        R.string.hello, username));
 
             } catch (Exception e) {
                 Log.e("Twitter Login Failed", e.getMessage());
@@ -250,7 +249,7 @@ public class TweetActivity extends Activity implements OnClickListener {
                 final String status = mShareEditText.getText().toString();
 
                 if (status.trim().length() > 0) {
-                    new updateTwitterStatus().execute(status);
+                    new TwitterActivity.updateTwitterStatus().execute(status);
                 } else {
                     Toast.makeText(this, "Message is empty!!", Toast.LENGTH_SHORT).show();
                 }
@@ -269,7 +268,7 @@ public class TweetActivity extends Activity implements OnClickListener {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            pDialog = new ProgressDialog(TweetActivity.this);
+            pDialog = new ProgressDialog(TwitterActivity.this);
             pDialog.setMessage("Posting to twitter...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
@@ -313,10 +312,7 @@ public class TweetActivity extends Activity implements OnClickListener {
 			/* Dismiss the progress dialog after sharing */
             pDialog.dismiss();
 
-            Toast.makeText(TweetActivity.this, "Posted to Twitter!", Toast.LENGTH_SHORT).show();
-
-            // Clearing EditText field
-            mShareEditText.setText("");
+            Toast.makeText(TwitterActivity.this, "Posted to Twitter!", Toast.LENGTH_SHORT).show();
         }
 
     }

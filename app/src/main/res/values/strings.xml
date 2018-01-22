@@ -1,16 +1,27 @@
 <resources>
-    <string name="app_name">EducationalGame</string>
+    <string name="app_name" translatable="false">ResistorPractice</string>
     <string name="name">Name:</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="resistor">Resistor</string>
     <string name="highscores">HighScores</string>
-    <string name="title_activity_game">GameActivity</string>
+    <string name="title_activity_game" translatable="false">GameActivity</string>
     <string name="start">Start</string>
-    <string name="settings">Settings</string>
+    <string name="highscorebutton" translatable="false">Highscores</string>
     <string name="highscore">Highscore:</string>
-    <string name="AllTimeHighScoreDefault">Alpha 100 points</string>
-    <string name="result">Result</string>
-    <string name="unit">Ω</string>
-    <string name="resistancepicturedescription">ResistancePicture</string>
+    <string name="AllTimeHighScoreDefault">No high Score Saved yet</string>
+    <string name="result" translatable="false"></string>
+    <string name="unit" translatable="false">Ω</string>
+    <string name="resistancepicturedescription" translatable="false">ResistancePicture</string>
+    <string name="buttonNext">Check</string>
+    <string name="twitter_callback" translatable="false">https://play.google.com/apps/testing/sg.jcu.robertpeters.educationalgame</string>
+    <string name="twitter_consumer_key" translatable="false">insert_key</string>
+    <string name="twitter_consumer_secret" translatable="false">insert_key</string>
+    <string name="twitter_oauth_verifier" translatable="false">oauth_verifier</string>
+    <string name="hello">Hello %1$s </string>
+    <string name="share">Share</string>
+    <string name="share_instructions">I just scored %1$o out of %2$o points when calculation resistors with #resistorpractice #learning #physics</string>
+    <string name="authorize">authorize</string>
+    <string name="login_instructions">login_instructions</string>
+    <string name="saveExplanation">You can now share your results on Twitter (below) or save your Score locally!</string>
+    <string name="saveScore">Save</string>
+    <string name="congratsText">Congratulation %1$s, you have Scored %2$o out of %3$o Points!"</string>
 </resources>

@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:onClick="Settings"
-        android:text="@string/settings"
+        android:text="@string/highscorebutton"
         app:layout_constraintStart_toStartOf="@+id/startButton"
         app:layout_constraintTop_toBottomOf="@+id/startButton" />
 

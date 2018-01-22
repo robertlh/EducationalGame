@@ -3,4 +3,7 @@
     <dimen name="ButtonWidth">100sp</dimen>
     <dimen name="captionSize">30sp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="task_width">300dp</dimen>
+    <dimen name="task_height">180dp</dimen>
+    <dimen name="image_size">100dp</dimen>
 </resources>
