@@ -3,13 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:baselineAligned="false"
     tools:context="sg.jcu.robertpeters.educationalgame.HighScoreActivity">
 
-    <fragment android:name="sg.jcu.robertpeters.educationalgame.HighScoreFragment"
+    <fragment
         android:id="@+id/article_fragment"
-        android:layout_weight="2"
+        android:name="sg.jcu.robertpeters.educationalgame.HighScoreFragment"
         android:layout_width="0dp"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_weight="2" />
 
 
 </LinearLayout>

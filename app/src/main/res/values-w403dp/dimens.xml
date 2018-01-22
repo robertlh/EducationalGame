@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="task_width">403dp</dimen>
+    <dimen name="task_height">200dp</dimen>
+    <dimen name="image_size">134dp</dimen>
+</resources>

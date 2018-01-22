@@ -1,0 +1,117 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="sg.jcu.robertpeters.educationalgame.taskFragment">
+
+    <TextView
+        android:id="@+id/resistor1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/resistor"
+        app:layout_constraintBottom_toTopOf="@+id/resistor1image"
+        app:layout_constraintEnd_toStartOf="@+id/resistor2image"
+        app:layout_constraintStart_toStartOf="@+id/resistor1image" />
+
+    <ImageView
+        android:id="@+id/resistor1image"
+        android:layout_width="@dimen/image_size"
+        android:layout_height="@dimen/image_size"
+        android:contentDescription="@string/resistor"
+        android:src="@drawable/resistor1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/resistor2image"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/resistor1_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/resistor"
+        app:layout_constraintEnd_toStartOf="@+id/resistor2image"
+        app:layout_constraintStart_toStartOf="@+id/resistor1image"
+        app:layout_constraintTop_toBottomOf="@+id/resistor1image" />
+
+    <TextView
+        android:id="@+id/resistor2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/resistor"
+        app:layout_constraintBottom_toTopOf="@+id/resistor2image"
+        app:layout_constraintEnd_toStartOf="@+id/resistor3image"
+        app:layout_constraintStart_toStartOf="@+id/resistor2image" />
+
+    <ImageView
+        android:id="@+id/resistor2image"
+        android:layout_width="@dimen/image_size"
+        android:layout_height="@dimen/image_size"
+        android:contentDescription="@string/resistor"
+        android:src="@drawable/resistor1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/resistor3image"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/resistor1image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/resistor2_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/resistor"
+        app:layout_constraintEnd_toStartOf="@+id/resistor3image"
+        app:layout_constraintStart_toStartOf="@+id/resistor2image"
+        app:layout_constraintTop_toBottomOf="@+id/resistor2image" />
+
+    <TextView
+        android:id="@+id/resistor3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/resistor"
+        app:layout_constraintBottom_toTopOf="@+id/resistor3image"
+        app:layout_constraintEnd_toEndOf="@+id/resistor3image"
+        app:layout_constraintStart_toStartOf="@+id/resistor3image" />
+
+    <ImageView
+        android:id="@+id/resistor3image"
+        android:layout_width="@dimen/image_size"
+        android:layout_height="@dimen/image_size"
+        android:contentDescription="@string/resistor"
+        android:src="@drawable/resistor1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/resistor2image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/resistor3_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/resistor"
+        app:layout_constraintEnd_toEndOf="@+id/resistor3image"
+        app:layout_constraintStart_toStartOf="@+id/resistor3image"
+        app:layout_constraintTop_toBottomOf="@+id/resistor3image" />
+
+</android.support.constraint.ConstraintLayout>

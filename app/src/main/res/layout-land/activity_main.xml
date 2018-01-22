@@ -8,12 +8,18 @@
     android:orientation="horizontal"
     tools:context="sg.jcu.robertpeters.educationalgame.MainActivity">
 
-
     <fragment
         android:id="@+id/startFragment"
         android:name="sg.jcu.robertpeters.educationalgame.StartFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="2" />
+
+    <fragment
+        android:id="@+id/HighscoreFragment"
+        android:name="sg.jcu.robertpeters.educationalgame.HighScoreFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
 
 </LinearLayout>

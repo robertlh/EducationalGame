@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="resistor">Resistor</string>
+    <string name="highscore">Highscore:</string>
+    <string name="buttonNext">Fertig!</string>
+    <string name="hello">Hallo %1$s </string>
+    <string name="share">Teilen</string>
+    <string name="share_instructions">Ich habe gerade %1$o von %2$o Widerstandsschaltungen richtig berechnet! #resistorpractice #widerstände #learning #physics</string>
+    <string name="authorize">Anmelden</string>
+    <string name="login_instructions">login_instructions</string>
+    <string name="saveExplanation">Du kannst dein Ergebnis jetzt unten auf Twitter veröffentlichen oder lokal Speichern!</string>
+    <string name="saveScore">Speichern</string>
+    <string name="congratsText">Herzlichen Glückwunsch %1$s, du hast %2$o von %3$o Schaltungen richtig berechnet!"</string>
+    <string name="name">Name:</string>
+    <string name="highscores">Bestenliste</string>
+    <string name="start">Start</string>
+    <string name="AllTimeHighScoreDefault">Bisher kein HighScore gespeichert</string>
+</resources>
